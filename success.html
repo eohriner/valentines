@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <title>Happy Valentine’s Day ❤️</title>
   <style>
-    /* Full page and background */
+    /* Full-page body */
     body {
       margin: 0;
       font-family: 'Arial', sans-serif;
@@ -13,15 +13,28 @@
       overflow: hidden;
       height: 100vh;
       position: relative;
-      /* Gradient + peony pattern */
-      background: linear-gradient(120deg, #ff9a9e, #fad0c4),
-                  url('https://i.ibb.co/r0D9s7x/peonies-pattern.png') repeat;
-      background-size: 150px; /* size of the pattern */
+      /* Full-screen background image */
+      background: url('images/Peonies.jpeg') no-repeat center center fixed;
+      background-size: cover;
+    }
+
+    /* Optional dark overlay to fade wallpaper a bit */
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 105, 135, 0.35); /* pink tint with opacity */
+      z-index: 0;
     }
 
     /* Centered container box */
     .container {
-      max-width: 700px; /* wider so text doesn't wrap */
+      position: relative; /* bring above overlay */
+      z-index: 1;
+      max-width: 700px;
       margin: 20vh auto;
       padding: 30px;
       border-radius: 20px;
@@ -36,8 +49,9 @@
     /* Floating hearts */
     .heart {
       position: absolute;
-      font-size: 20px;
+      font-size: 30px; /* base size, will randomize bigger */
       animation: float 6s linear infinite;
+      z-index: 1;
     }
 
     @keyframes float {
@@ -51,26 +65,26 @@
   <div class="container">
     <h1><span class="nowrap">❤️ Happy Valentine’s Day Love ❤️</span></h1>
     <p>
-      Thank you for choosing me as your lucky valentine.<br><br>
-      I’ll see you at <strong>Kumoya</strong> for dinner
+      You have successfully confirmed that you possess a heart.<br><br>
+      I’ll see you at <strong>Kumoya</strong> for dinner 🌸
     </p>
-    <p>🍣🍣🍣🍣🍣</p>
+    <p>🍣🍣🍣🍣🍣🍣🍣🍣🍣</p>
   </div>
 
   <script>
     function spawnHearts() {
-      const colors = ['#ff4d6d', '#ffccd5', '#ff6699']; // Pink / red tones only
+      const colors = ['#ff4d6d', '#ffccd5', '#ff6699']; // Pink/red tones
       setInterval(() => {
         const heart = document.createElement('div');
         heart.className = 'heart';
         heart.innerHTML = '❤️';
         heart.style.left = Math.random() * 100 + 'vw';
-        heart.style.fontSize = (20 + Math.random() * 20) + 'px';
+        heart.style.fontSize = (40 + Math.random() * 30) + 'px'; // bigger hearts
         heart.style.color = colors[Math.floor(Math.random() * colors.length)];
         heart.style.transform = `rotate(${Math.random()*360}deg)`;
         document.body.appendChild(heart);
         setTimeout(() => heart.remove(), 6000);
-      }, 300);
+      }, 200); // faster spawn (every 0.2s)
     }
 
     spawnHearts();
