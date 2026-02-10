@@ -13,12 +13,11 @@
       overflow: hidden;
       height: 100vh;
       position: relative;
-      /* Full-screen background image */
       background: url('images/Peonies.jpeg') no-repeat center center fixed;
       background-size: cover;
     }
 
-    /* Optional dark overlay to fade wallpaper a bit */
+    /* Overlay to fade wallpaper slightly */
     body::before {
       content: "";
       position: absolute;
@@ -30,9 +29,9 @@
       z-index: 0;
     }
 
-    /* Centered container box */
+    /* Container for text */
     .container {
-      position: relative; /* bring above overlay */
+      position: relative;
       z-index: 1;
       max-width: 700px;
       margin: 20vh auto;
@@ -44,6 +43,21 @@
     /* H1 hearts line no-wrap */
     h1 span.nowrap {
       white-space: nowrap;
+      font-size: 48px;
+    }
+
+    /* Main message text */
+    p.message {
+      font-size: 28px;
+      line-height: 1.4;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+
+    /* Sushi emoji line */
+    p.sushi {
+      font-size: 32px;
+      margin-top: 10px;
     }
 
     /* Floating hearts */
@@ -64,11 +78,11 @@
 <body>
   <div class="container">
     <h1><span class="nowrap">❤️ Happy Valentine’s Day Love ❤️</span></h1>
-    <p>
+    <p class="message">
       Thanks for picking me to be your lucky valentine!<br><br>
       I’ll see you at <strong>Kumoya</strong> for dinner
     </p>
-    <p>🍣🍣🍣🍣🍣🍣🍣🍣🍣</p>
+    <p class="sushi">🍣🍣🍣🍣🍣🍣🍣🍣🍣</p>
   </div>
 
   <script>
