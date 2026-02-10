@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Verification Required ❤️</title>
+  <title>Security Check ❤️</title>
   <style>
     body {
       margin: 0;
@@ -10,17 +10,14 @@
       background: linear-gradient(120deg, #ff9a9e, #fad0c4);
       color: #fff;
       text-align: center;
-      overflow: hidden;
     }
- 
     .container {
       max-width: 500px;
-      margin: 15vh auto;
+      margin: 20vh auto;
       background: rgba(0,0,0,0.25);
       padding: 30px;
       border-radius: 20px;
     }
- 
     button {
       background: #ff4d6d;
       border: none;
@@ -30,98 +27,13 @@
       color: white;
       cursor: pointer;
     }
- 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-      margin-top: 20px;
-    }
- 
-    .grid img {
-      width: 100%;
-      border-radius: 10px;
-      cursor: pointer;
-      border: 4px solid transparent;
-    }
- 
-    .grid img.selected {
-      border-color: #ffccd5;
-    }
- 
-    .hidden {
-      display: none;
-    }
- 
-    .heart {
-      position: absolute;
-      color: pink;
-      font-size: 20px;
-      animation: float 6s infinite;
-    }
- 
-    @keyframes float {
-      0% { transform: translateY(100vh); opacity: 0; }
-      50% { opacity: 1; }
-      100% { transform: translateY(-10vh); opacity: 0; }
-    }
   </style>
 </head>
 <body>
- 
-<div class="container" id="step1">
-  <h2>Security Check</h2>
-  <p>Please confirm you are not a robot.</p>
-  <button onclick="goToImages()">I'm Not a Robot</button>
-</div>
- 
-<div class="container hidden" id="step2">
-  <h2>Select all images of your Valentine 💘</h2>
-  <div class="grid">
-    <img src="images/ethan1.jpg" onclick="toggle(this)">
-    <img src="images/ethan2.jpg" onclick="toggle(this)">
-    <img src="images/ethan3.jpg" onclick="toggle(this)">
+  <div class="container">
+    <h2>Security Check</h2>
+    <p>Please confirm you are not a robot.</p>
+    <button onclick="window.location.href='captcha.html'">I'm Not a Robot</button>
   </div>
-  <br>
-  <button onclick="verify()">Verify</button>
-</div>
- 
-<div class="container hidden" id="step3">
-  <h1>❤️ Happy Valentine’s Day Love ❤️</h1>
-  <p>
-    You have successfully confirmed that you possess a heart.<br><br>
-    I’ll see you at <strong>Kumoya</strong> for dinner 🌸
-  </p>
-</div>
- 
-<script>
-  function goToImages() {
-    document.getElementById('step1').classList.add('hidden');
-    document.getElementById('step2').classList.remove('hidden');
-  }
- 
-  function toggle(img) {
-    img.classList.toggle('selected');
-  }
- 
-  function verify() {
-    document.getElementById('step2').classList.add('hidden');
-    document.getElementById('step3').classList.remove('hidden');
-    spawnHearts();
-  }
- 
-  function spawnHearts() {
-    setInterval(() => {
-      const heart = document.createElement('div');
-      heart.className = 'heart';
-      heart.innerHTML = '❤️';
-      heart.style.left = Math.random() * 100 + 'vw';
-      heart.style.fontSize = (20 + Math.random() * 20) + 'px';
-      document.body.appendChild(heart);
-      setTimeout(() => heart.remove(), 6000);
-    }, 300);
-  }
-</script>
- 
 </body>
 </html>
