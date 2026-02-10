@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Select Your Valentine 💘</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(120deg, #ff9a9e, #fad0c4);
+      color: #fff;
+      text-align: center;
+    }
+    .container {
+      max-width: 500px;
+      margin: 5vh auto;
+      background: rgba(0,0,0,0.25);
+      padding: 30px;
+      border-radius: 20px;
+    }
+    button {
+      background: #ff4d6d;
+      border: none;
+      padding: 12px 24px;
+      font-size: 16px;
+      border-radius: 25px;
+      color: white;
+      cursor: pointer;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 20px;
+    }
+    .grid img {
+      width: 100%;
+      border-radius: 10px;
+      cursor: pointer;
+      border: 4px solid transparent;
+    }
+    .grid img.selected {
+      border-color: #ffccd5;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Select all images of your Valentine 💘</h2>
+    <div class="grid">
+      <img src="images/ethan1.jpeg" onclick="toggle(this)">
+      <img src="images/ethan2.jpeg" onclick="toggle(this)">
+      <img src="images/ethan3.jpeg" onclick="toggle(this)">
+    </div>
+    <br>
+    <button onclick="verify()">Verify</button>
+  </div>
+
+  <script>
+    function toggle(img) {
+      img.classList.toggle('selected');
+    }
+
+    function verify() {
+      // In this simple Valentine version, we don’t actually check selection
+      window.location.href = 'success.html';
+    }
+  </script>
+</body>
+</html>
